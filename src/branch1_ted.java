@@ -53,12 +53,13 @@ public class branch1_ted {
 			}		
 		}
 		m.reset();
-		String[] data2 = new String[keys.size()];
-		//int count = 0;
 
+		//int count = 0;
+		String[] data2 = new String[keys.size()];
 		int lastTime = 0;
 		while(m.find()){
 			time = Integer.parseInt(m.group(1));
+
 			//if(Integer.parseInt(m.group(1)) == time){
 			data2[keys.indexOf(m.group(2))] = m.group(3);
 			if (lastTime != time){
@@ -71,7 +72,7 @@ public class branch1_ted {
 				
 				//count += 1;
 				//System.out.println(count);
-
+				data2[keys.indexOf(m.group(2))] = m.group(3);
 				}
 			lastTime = time;
 			/*} else{
