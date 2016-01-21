@@ -55,8 +55,9 @@ public class branch1_ted {
 		m.reset();
 		String[] data2 = new String[keys.size()];
 		int count = 0;
+		int lastTime = 0;
 		while(m.find()){
-			int lastTime = 0;
+
 			//if(Integer.parseInt(m.group(1)) == time){
 			if (lastTime != time){
 				data2[keys.indexOf(m.group(2))] = m.group(3);
