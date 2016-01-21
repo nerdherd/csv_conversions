@@ -42,6 +42,7 @@ public class branch1_ted {
 			time = Integer.parseInt(m.group(1));
 			if (lastTime != time){
 				System.out.println("data2 " + Arrays.toString(data2));
+				data2 = new String[keys.size()];
 			}
 			data2[keys.indexOf(m.group(2))] = m.group(3);
 			lastTime = time;
