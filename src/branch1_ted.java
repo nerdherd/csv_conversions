@@ -41,7 +41,7 @@ public class branch1_ted {
 //		boolean b = m.find();
 //		System.out.println(m.group(3));
 		
-		int time = 1;
+		int time = 0;
 		ArrayList<String> keys = new ArrayList();
 		ArrayList<String> data = new ArrayList();
 		
@@ -54,10 +54,11 @@ public class branch1_ted {
 		}
 		m.reset();
 		String[] data2 = new String[keys.size()];
-		int count = 0;
+		//int count = 0;
+
 		int lastTime = 0;
 		while(m.find()){
-
+			time = Integer.parseInt(m.group(1));
 			//if(Integer.parseInt(m.group(1)) == time){
 			data2[keys.indexOf(m.group(2))] = m.group(3);
 			if (lastTime != time){
