@@ -40,13 +40,11 @@ public class branch1_ted {
 		int lastTime = 0;
 		while(m.find()){
 			time = Integer.parseInt(m.group(1));
-			data2[keys.indexOf(m.group(2))] = m.group(3);
 			if (lastTime != time){
 				System.out.println("data2 " + Arrays.toString(data2));
 			}
 			data2[keys.indexOf(m.group(2))] = m.group(3);
 			lastTime = time;
-			System.out.println("data2 " + Arrays.toString(data2));
 		}
 		System.out.println("data2 " + Arrays.toString(data2));
 	}
