@@ -14,6 +14,50 @@ public class branch1_ted {
 	public static void main(String[] args) throws IOException {
 
 		FileWriter write = null;
+		File file = new File("/Users/tedlin/Desktop/csv smaller.txt"); // file location could change
+		FileReader fr = new FileReader("/Users/tedlin/Desktop/csv smaller.txt");
+		char[] characters = new char[(int)file.length()];
+			
+		fr.read(characters);
+		String doc = new String(characters);
+		
+		Pattern p = Pattern.compile("([0-9]+),\"([a-z A-Z]+)\",\"(-?[0-9]+\\.?[0-9]+)\"");
+		Matcher m = p.matcher(doc);
+
+		int time = 0;
+		ArrayList<String> keys = new ArrayList();
+		ArrayList<String> data = new ArrayList();
+		
+		while(m.find()) {
+			time = Integer.parseInt(m.group(1));
+			if(!keys.contains(m.group(2))){
+				keys.add(m.group(2));
+			}		
+		}
+		m.reset();
+
+		String[] data2 = new String[keys.size()];
+		int lastTime = 0;
+		while(m.find()){
+			time = Integer.parseInt(m.group(1));
+			data2[keys.indexOf(m.group(2))] = m.group(3);
+			if (lastTime != time){
+				System.out.println("data2 " + Arrays.toString(data2));
+			}
+			data2[keys.indexOf(m.group(2))] = m.group(3);
+			lastTime = time;
+			System.out.println("data2 " + Arrays.toString(data2));
+		}
+		System.out.println("data2 " + Arrays.toString(data2));
+	}
+}
+
+/*	reference code
+ * public class branch1_ted {
+
+	public static void main(String[] args) throws IOException {
+
+		FileWriter write = null;
 		
 			//File file2 = new File("/Users/tedlin/Desktop/Organized Data.txt");
 			//file2.createNewFile();
@@ -28,7 +72,7 @@ public class branch1_ted {
 		
 		Pattern p = Pattern.compile("([0-9]+),\"([a-z A-Z]+)\",\"(-?[0-9]+\\.?[0-9]+)\"");
 		Matcher m = p.matcher(doc);
-			/*	6194,"Yaw","53.119998931884766"
+				6194,"Yaw","53.119998931884766"
 				6194,"Displacement X","145.60186767578125"
 				6194,"Displacement Y","-331.35760498046875"
 				8395,"Yaw","53.119998931884766"
@@ -37,7 +81,7 @@ public class branch1_ted {
 				9998,"Yaw","53.08000183105469"
 				9998,"Displacement X","145.6016387939453"
 				9998,"Displacement Y","-331.3576965332031");
-				*/
+				
 //		boolean b = m.find();
 //		System.out.println(m.group(3));
 		
@@ -72,10 +116,11 @@ public class branch1_ted {
 				
 				//count += 1;
 				//System.out.println(count);
-				data2[keys.indexOf(m.group(2))] = m.group(3);
-				}
+				
+			}
+			data2[keys.indexOf(m.group(2))] = m.group(3);
 			lastTime = time;
-			/*} else{
+			} else{
 				try {
 					write.write(time);
 					write.write("\t");
@@ -91,14 +136,14 @@ public class branch1_ted {
 					e.printStackTrace();
 				}
 			}
-		}*/
-		/*System.out.println("time: " + time);
-		System.out.println("keys " +keys);
+		}
+		//System.out.println("time: " + time);
+		//System.out.println("keys " +keys);
 		//System.out.println("data array " + data);
 		System.out.println("data2 " + Arrays.toString(data2));
 		//System.out.println(doc);
-		System.out.println(count);*/
+		//System.out.println(count);
+		}
 	}
-}
-}
+}*/
 
