@@ -50,15 +50,26 @@ public class branch1_ted {
 			time = Integer.parseInt(m.group(1));
 			if(!keys.contains(m.group(2))){
 				keys.add(m.group(2));
-			System.out.println(time);
 			}		
 		}
 		m.reset();
 		String[] data2 = new String[keys.size()];
+		int count = 0;
 		while(m.find()){
-
+			int lastTime = 0;
 			//if(Integer.parseInt(m.group(1)) == time){
+			if (lastTime != time){
 				data2[keys.indexOf(m.group(2))] = m.group(3);
+				//System.out.println(m.group(0));
+				//System.out.println("time: " + time);
+				//System.out.println("keys " + keys);
+				System.out.println("data2 " + Arrays.toString(data2));
+				//System.out.println(doc);
+				
+				//count += 1;
+				//System.out.println(count);
+				lastTime = time;
+				}
 			/*} else{
 				try {
 					write.write(time);
@@ -76,11 +87,12 @@ public class branch1_ted {
 				}
 			}
 		}*/
-		System.out.println("time: " + time);
+		/*System.out.println("time: " + time);
 		System.out.println("keys " +keys);
 		//System.out.println("data array " + data);
 		System.out.println("data2 " + Arrays.toString(data2));
-		//System.out.println("data " + m.group(3));
+		//System.out.println(doc);
+		System.out.println(count);*/
 	}
 }
 }
