@@ -59,8 +59,9 @@ public class branch1_ted {
 		while(m.find()){
 
 			//if(Integer.parseInt(m.group(1)) == time){
+			data2[keys.indexOf(m.group(2))] = m.group(3);
 			if (lastTime != time){
-				data2[keys.indexOf(m.group(2))] = m.group(3);
+
 				//System.out.println(m.group(0));
 				//System.out.println("time: " + time);
 				//System.out.println("keys " + keys);
@@ -69,8 +70,9 @@ public class branch1_ted {
 				
 				//count += 1;
 				//System.out.println(count);
-				lastTime = time;
+
 				}
+			lastTime = time;
 			/*} else{
 				try {
 					write.write(time);
