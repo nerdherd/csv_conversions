@@ -12,10 +12,11 @@ import java.util.regex.Pattern;
 public class branch1_ted {
 
 	public static void main(String[] args) throws IOException {
-
-		FileWriter write = null;
-		File file = new File("/Users/tedlin/Desktop/csv smaller.txt"); // file location could change
-		FileReader fr = new FileReader("/Users/tedlin/Desktop/csv smaller.txt");
+		File file1 = new File("C:/Users/J/Desktop/Jocelyn Hsu/Grade 9/FRC/CSV Notepad Reformated.txt");
+		file1.createNewFile();
+		FileWriter fw = new FileWriter(file1);
+		File file = new File("C:/Users/J/Desktop/Jocelyn Hsu/Grade 9/FRC/CSV Notepad.txt"); // file location could change
+		FileReader fr = new FileReader(file);
 		char[] characters = new char[(int)file.length()];
 			
 		fr.read(characters);
@@ -42,12 +43,15 @@ public class branch1_ted {
 			time = Integer.parseInt(m.group(1));
 			if (lastTime != time){
 				System.out.println("data2 " + Arrays.toString(data2));
+				fw.write(Arrays.toString(data2)+"\r\n");
 				data2 = new String[keys.size()];
 			}
 			data2[keys.indexOf(m.group(2))] = m.group(3);
 			lastTime = time;
 		}
 		System.out.println("data2 " + Arrays.toString(data2));
+		fw.write(Arrays.toString(data2)+"\n");
+		fw.close();
 	}
 }
 
