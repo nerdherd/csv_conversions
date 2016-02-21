@@ -20,11 +20,11 @@ public class CSV {
 		JFileChooser fileChooser = new JFileChooser();
 		File readFile = null;
 		File writeFile = null;
-		returnVal = fileChooser.showOpenDialog(frame);
+		int returnVal = fileChooser.showOpenDialog(frame);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 		       readFile = fileChooser.getSelectedFile();
 	    	}
-		int returnVal = fileChooser.showSaveDialog(frame);
+		returnVal = fileChooser.showSaveDialog(frame);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 		       writeFile = fileChooser.getSelectedFile();
 	    	}
